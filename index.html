@@ -62,6 +62,56 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Kali使用shellinabox，并使用Ngrok将shellinabox映射到外网" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/24/Kali使用shellinabox，并使用Ngrok将shellinabox映射到外网/" class="article-date">
+  <time datetime="2019-03-24T08:07:01.000Z" itemprop="datePublished">2019-03-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/24/Kali使用shellinabox，并使用Ngrok将shellinabox映射到外网/">Kali使用shellinabox，并使用Ngrok将shellinabox映射到外网</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​     Shellinabox 是一个利用 Ajax 技术构建的基于 Web 浏览器的远程终端模拟器，安装该软件后，服务器端不需要开启 ssh服务，通过 Web 浏览器就可以对远程主机进行操作。使用来登录到系统<a href="http://ip:4200/" target="_blank" rel="noopener">http://IP:4200</a>，在启用了SSL/TLS证书，需要用<a href="http://ip:4200/" target="_blank" rel="noopener">http://IP:4200</a>来登录。默认情况下shellinabox使用的是4200端口。</p>
+<p>1.安装shellinabox</p>
+<p>​     打开kali系统并在终端输入命令apt install shellinabox对shellinabox进行安装，若无法找到包，请更新源后再继续安装。</p>
+<p>2.运行shellinabox</p>
+<p>​    输入命令shellinaboxd -b -t运行shellinabox，启动服务之后，在浏览器访问<a href="http://ip:4200/" target="_blank" rel="noopener">http://IP:4200</a>，且shellinabox默认禁止root登陆，所以Kali系统需要新建一个普通用户登录</p>
+<img src="/2019/03/24/Kali使用shellinabox，并使用Ngrok将shellinabox映射到外网/1.png">
+<p>3.使用Ngrok将服务映射到外网</p>
+<p>​    （1）在<a href="https://www.ngrok.cc/" target="_blank" rel="noopener">Ngrok</a>建立隧道，注意本地端口填写启动shellinabox的端口</p>
+<img src="/2019/03/24/Kali使用shellinabox，并使用Ngrok将shellinabox映射到外网/2.png">
+<p>​    （2）下载客户端，并在KALI环境中解压，执行命令./sunny clientid 隧道id开启映射</p>
+<img src="/2019/03/24/Kali使用shellinabox，并使用Ngrok将shellinabox映射到外网/3.png">
+<p>4.通过外网登陆</p>
+<p>在浏览器中直接输入URL即可登录</p>
+<img src="/2019/03/24/Kali使用shellinabox，并使用Ngrok将shellinabox映射到外网/4.png">
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/24/Kali使用shellinabox，并使用Ngrok将shellinabox映射到外网/" data-id="cjtmnfyhq0000lwuzsn3l91jw" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-WebRAR目录穿越漏洞复现" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/03/24/WebRAR目录穿越漏洞复现/" class="article-date">
@@ -119,7 +169,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/24/WebRAR目录穿越漏洞复现/" data-id="cjtml9j6y000040uztr81zgxt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/24/WebRAR目录穿越漏洞复现/" data-id="cjtmnfyix0001lwuzpyhc4usu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -161,7 +211,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/17/使用github搭建个人博客/" data-id="cjtml9j7m000340uz3z91n0wg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/17/使用github搭建个人博客/" data-id="cjtmnfyj90004lwuzr0vuihsf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -200,7 +250,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/17/2019-03-16-使用Github搭建个人博客/" data-id="cjtml9j73000140uz5uzsbtp3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/17/2019-03-16-使用Github搭建个人博客/" data-id="cjtmnfyiz0002lwuz9wxp113x" class="article-share-link">Share</a>
       
       
     </footer>
@@ -245,7 +295,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/17/hello-world/" data-id="cjtml9j74000240uzvo0bxyts" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/17/hello-world/" data-id="cjtmnfyj50003lwuzcylya6rm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -284,6 +334,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/03/24/Kali使用shellinabox，并使用Ngrok将shellinabox映射到外网/">Kali使用shellinabox，并使用Ngrok将shellinabox映射到外网</a>
+          </li>
         
           <li>
             <a href="/2019/03/24/WebRAR目录穿越漏洞复现/">WebRAR目录穿越漏洞复现</a>
