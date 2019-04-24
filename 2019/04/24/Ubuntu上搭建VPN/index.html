@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Ubuntu上搭建VPN | 欢迎访问</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在Ubuntu上搭建VPN常见的三种方法分别是PPTP,L2TP/IPsec，OpenVPN。这里使用PPTP安装。 安装流程： 1.安装pptpd 输入命令sudo apt-get install pptpd对pptpd进行安装 2.配置pptpd 修改pptpd.conf配置文件信息 sudo gedit /etc/pptpd.conf 进入文字编辑页面，在文件末尾找到#localip  19">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu上搭建VPN">
+<meta property="og:url" content="http://yoursite.com/2019/04/24/Ubuntu上搭建VPN/index.html">
+<meta property="og:site_name" content="欢迎访问">
+<meta property="og:description" content="在Ubuntu上搭建VPN常见的三种方法分别是PPTP,L2TP/IPsec，OpenVPN。这里使用PPTP安装。 安装流程： 1.安装pptpd 输入命令sudo apt-get install pptpd对pptpd进行安装 2.配置pptpd 修改pptpd.conf配置文件信息 sudo gedit /etc/pptpd.conf 进入文字编辑页面，在文件末尾找到#localip  19">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/04/24/Ubuntu上搭建VPN/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/24/Ubuntu上搭建VPN/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/24/Ubuntu上搭建VPN/3.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/24/Ubuntu上搭建VPN/4.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/24/Ubuntu上搭建VPN/5.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/24/Ubuntu上搭建VPN/6.png">
+<meta property="og:updated_time" content="2019-04-24T11:43:59.844Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ubuntu上搭建VPN">
+<meta name="twitter:description" content="在Ubuntu上搭建VPN常见的三种方法分别是PPTP,L2TP/IPsec，OpenVPN。这里使用PPTP安装。 安装流程： 1.安装pptpd 输入命令sudo apt-get install pptpd对pptpd进行安装 2.配置pptpd 修改pptpd.conf配置文件信息 sudo gedit /etc/pptpd.conf 进入文字编辑页面，在文件末尾找到#localip  19">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/24/Ubuntu上搭建VPN/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="欢迎访问" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">欢迎访问</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Ubuntu上搭建VPN" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/24/Ubuntu上搭建VPN/" class="article-date">
+  <time datetime="2019-04-24T11:36:49.000Z" itemprop="datePublished">2019-04-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Ubuntu上搭建VPN
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在Ubuntu上搭建VPN常见的三种方法分别是PPTP,L2TP/IPsec，OpenVPN。这里使用PPTP安装。</p>
+<p>安装流程：</p>
+<p>1.安装pptpd</p>
+<p>输入命令sudo apt-get install pptpd对pptpd进行安装</p>
+<p>2.配置pptpd</p>
+<p>修改pptpd.conf配置文件信息</p>
+<p>sudo gedit /etc/pptpd.conf 进入文字编辑页面，在文件末尾找到#localip  192.168.0.1和#remoteip 192.168.0.234-238,192.168.0.245去掉前面的注释改为localip  192.168.0.1和remoteip 192.168.0.234-238,192.168.0.245其中localip是指本机IP,这个IP不是指公网IP也不是局域网IP.代表的是VPN服务器的ip地址。remoteip是客户端连接后分配的ip地址。</p>
+<p>3.添加VPN用户账号</p>
+<p>sudo vim /etc/ppp/chap-secrets 打开文件以后，看见：</p>
+<p># Secrets for authentication using CHAP</p>
+<p># client        server  secret                  IP addresses</p>
+<p>client代表用户名，server代表使用的VPN服务类型， secret代表用户登录的密码，IP address代表可以可以登录连接的IP</p>
+<p>在其下面分别输入： 用户名    pptpd    密码    *</p>
+<p>4.设置VPN的ms-dns</p>
+<p>sudo gedit /etc/ppp/pptpd-options 打开文件找到：#ms-dns 10.0.0.1和#ms-dns 10.0.0.1去掉注释，修改为8.8.8.8、8.8.4.4或者你其它的DNS服务器；如：ms-dns 8.8.8.8和ms-dns 8.8.4.4</p>
+<p>5.开启内核IP转发</p>
+<p>sudo gedit /etc/sysctl.conf</p>
+<p>在打开的文档中找到</p>
+<p>#net.ipv4.ip_forward=1</p>
+<p>去掉注释</p>
+<p>net.ipv4.ip_forward=1</p>
+<p>保存以后，输入命令，使修改及时生效</p>
+<p>sudo sysctl -p</p>
+<img src="/2019/04/24/Ubuntu上搭建VPN/1.png">
+<p>6.安装配置iptables</p>
+<p>（1）sudo apt-get install iptables命令安装iptables</p>
+<p>安装后清除iptables里旧的规则</p>
+<p>sudo iptables -F</p>
+<p>sudo iptables -X</p>
+<p>sudo iptables -t nat -F</p>
+<p>sudo iptables -t nat -X</p>
+<p>（2）允许gre协议以及1723端口、47端口</p>
+<p>sudo iptables -A INPUT -p gre -j ACCEPT </p>
+<p>sudo iptables -A INPUT -p tcp –dport 1723 -j ACCEPT </p>
+<p>sudo iptables -A INPUT -p tcp –dport 47 -j ACCEPT </p>
+<p>（3）开启NAT转发</p>
+<p>sudo iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -o eth0 -j MASQUERADE</p>
+<p>（4）保存iptables规则</p>
+<p>sudo iptables-save &gt; /etc/iptables-rules</p>
+<p>打卡网卡配置文件</p>
+<p>sudo gedit /etc/network/interfaces</p>
+<p>在文件末尾添加</p>
+<p>pre-up iptables-restore &lt; /etc/iptables-rules</p>
+<p>7.重启pptpd服务</p>
+<p>sudo service pptpd restart</p>
+<p>查看端口1723是否被启用</p>
+<img src="/2019/04/24/Ubuntu上搭建VPN/2.png">
+<p>Windows上连接</p>
+<p>1，打开网络共享中心</p>
+<img src="/2019/04/24/Ubuntu上搭建VPN/3.png">
+<p>2，点击设置新的连接或网络，在弹出窗口点击连接到工作区</p>
+<img src="/2019/04/24/Ubuntu上搭建VPN/4.png">
+<p>3，点击使用我的Internet连接VPN</p>
+<img src="/2019/04/24/Ubuntu上搭建VPN/5.png">
+<p>4，输入VPN服务器地址</p>
+<img src="/2019/04/24/Ubuntu上搭建VPN/6.png">
+<p>5，输入VPN登录用户名密码，点击连接，点击跳过，最后关闭</p>
+<p>6，连接网络，可以连接，安装成功。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/04/24/Ubuntu上搭建VPN/" data-id="cjuv6jccf0000f0uzoq4fp9xg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/04/24/windows系统架设VPN服务器/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          windows系统架设VPN服务器
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/24/Kali使用shellinabox，并使用Ngrok将shellinabox映射到外网/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Kali使用shellinabox，并使用Ngrok将shellinabox映射到外网</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/04/24/windows系统架设VPN服务器/">windows系统架设VPN服务器</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/24/Ubuntu上搭建VPN/">Ubuntu上搭建VPN</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/24/Kali使用shellinabox，并使用Ngrok将shellinabox映射到外网/">Kali使用shellinabox，并使用Ngrok将shellinabox映射到外网</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/24/WebRAR目录穿越漏洞复现/">WebRAR目录穿越漏洞复现</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/17/使用github搭建个人博客/">使用github搭建个人博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 qianlongwuyongqian<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
